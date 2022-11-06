@@ -1,0 +1,7 @@
+from pulumi_kubernetes.yaml import ConfigGroup
+from pulumi import export
+
+# Create resources from standard Kubernetes guestbook YAML example.
+guestbook = ConfigGroup(
+  "guestbook",
+  files=["yaml/*.yaml"])
