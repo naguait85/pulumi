@@ -1,6 +1,12 @@
 from pulumi_kubernetes.yaml import ConfigGroup
 from pulumi import export
 
+mkdir yaml
+pushd yaml
+curl -L --remote-name \
+    "https://raw.githubusercontent.com/kubernetes/examples/master/guestbook/{frontend-deployment,frontend-service,redis-master-deployment,redis-master-service,redis-replica-deployment,redis-replica-service}.yaml"
+popd
+
 # Create resources from standard Kubernetes guestbook YAML example.
 guestbook = ConfigGroup(
   "guestbook",
